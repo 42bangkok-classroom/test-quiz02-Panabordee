@@ -1,8 +1,22 @@
 import axios from "axios";
 
+interface User {
+  id: number
+  name: string
+  phone: string
+  address: Address | null
+}
+
 interface Geo {
   lat: string
   lng: string
+}
+
+interface ApiUser {
+  id: number
+  name: string
+  phone: string
+  address?: Address
 }
 
 interface Address {
@@ -13,19 +27,6 @@ interface Address {
   geo: Geo
 }
 
-interface ApiUser {
-  id: number
-  name: string
-  phone: string
-  address?: Address
-}
-
-interface User {
-  id: number
-  name: string
-  phone: string
-  address: Address | null
-}
 
 export async function getPostalAddress(): Promise<User[]> {
   try {

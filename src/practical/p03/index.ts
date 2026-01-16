@@ -1,9 +1,21 @@
 import axios from "axios";
 
+interface ApiUser {
+  id: number;
+  name: string;
+  phone: string;
+  address?: Address;
+}
 
 interface Geo {
   lat: string;
   lng: string;
+}
+interface User {
+  id: number;
+  name: string;
+  phone: string;
+  address: Address | null;
 }
 
 interface Address {
@@ -14,19 +26,9 @@ interface Address {
   geo: Geo;
 }
 
-interface ApiUser {
-  id: number;
-  name: string;
-  phone: string;
-  address?: Address;
-}
 
-interface User {
-  id: number;
-  name: string;
-  phone: string;
-  address: Address | null;
-}
+
+
 
 
 export async function filterUserById(

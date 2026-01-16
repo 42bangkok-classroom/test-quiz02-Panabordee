@@ -13,6 +13,14 @@ interface Address {
   geo: Geo;
 }
 
+interface User {
+  id: number;
+  name: string;
+  phone: string;
+  address: Address | null;
+}
+
+
 interface ApiUser {
   id: number;
   name: string;
@@ -20,12 +28,6 @@ interface ApiUser {
   address?: Address;
 }
 
-interface User {
-  id: number;
-  name: string;
-  phone: string;
-  address: Address | null;
-}
 
 export async function safeFetchUser(
   userId: number
