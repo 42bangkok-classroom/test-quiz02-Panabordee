@@ -1,28 +1,5 @@
 import axios from "axios";
 
-type newUser = {
-  name: string;
-  username?: string;
-  email?: string;
-  address?: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  } | null;
-  phone: string;
-  website?: string;
-  company?: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-};
-
 interface Geo {
   lat: string | null;
   lng: string | null;
@@ -43,11 +20,25 @@ interface User {
   address: Address | null;
 }
 
+interface NewUser {
+  name?: string;
+  phone?: string;
+  address?: {
+    street?: string;
+    suite?: string;
+    city?: string;
+    zipcode?: string;
+    geo?: {
+      lat?: string;
+      lng?: string;
+    };
+  };
+}
 
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
 export async function addUser(
-  newUserData: newUser | null
+  newUserData: NewUser | null
 ): Promise<User[]> {
   try {
     const response = await axios.get<User[]>(API_URL);
