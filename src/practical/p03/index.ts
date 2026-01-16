@@ -29,9 +29,8 @@ interface User {
 }
 
 
-export async function filterUserById(
-  id: number
-): Promise<User | "Invalid id"> {
+export async function filterUserById(id:number): 
+Promise<User | "Invalid id"> {
   try {
     const response = await axios.get<ApiUser[]>(
       "https://jsonplaceholder.typicode.com/users"
